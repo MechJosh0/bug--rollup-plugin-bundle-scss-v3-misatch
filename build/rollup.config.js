@@ -9,6 +9,7 @@ import replace from '@rollup/plugin-replace';
 import babel from '@rollup/plugin-babel';
 import PostCSS from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
+import bundleScss from 'rollup-plugin-bundle-scss';
 import minimist from 'minimist';
 
 // Get browserslist config and remove ie from es build targets
@@ -40,6 +41,7 @@ const baseConfig = {
     vue: {
     },
     postVue: [
+      bundleScss(),
       resolve({
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
       }),
